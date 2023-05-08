@@ -1,0 +1,8 @@
+1. Write a program to read two numbers and find sum of their square.
+2. Write A C Program To Find The Area Of Circle?
+3. Write A C Program To Calculate Area and Perimeter of a Rectangle.
+4. Write A C Program To calculate Volume of Cone?
+	
+	Volume= 1/3(pi * r * r * h)  
+	Where, 
+	r =radius, h =height and pi = 3.14  

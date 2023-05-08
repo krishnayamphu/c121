@@ -1,0 +1,14 @@
+1. WAP to find largest number among two number.
+2. Program to find whether the entered number is positive, negative or zero.
+3. Program to find the smallest number among three numbers.
+4. Write a program to test whether the entered character is alpha digit or alpha character or special character on the basis of given condition.
+0-9         alpha digit
+a-z         alpha character
+others      special character
+
+5. Write a program to find the age group on the basis of age
+Age             group
+0-10            child
+10-19           teenage
+19-40           young
+above 40        old

@@ -1,0 +1,7 @@
+1. WAP to display the same of the day in a week depending on the number entered       through the keyboard using the switch-case statement.
+	
+2. Write a program to display from 40 to 1 using do while.
+
+3. Write a program to find sum of first n natural number using for loop.
+	
+4. Write a program to print all ASCII code for alphabet A to Z using for loop.
