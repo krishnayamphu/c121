@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-FILE *f;
+#include<string.h>
+FILE *f,*fp;
 typedef struct{
 char name[20];
 float salary;
@@ -10,7 +11,7 @@ float salary;
 void menu();
 void showEmployee();
 void addEmployee();
-
+void deleteEmployee();
 int main(){
     int choice;
     while(1){
@@ -24,6 +25,10 @@ int main(){
             break;
         case 2:
             addEmployee();
+            getch();
+            break;
+        case 4:
+            deleteEmployee();
             getch();
             break;
         case 5:
@@ -87,6 +92,60 @@ void addEmployee(){
     }
     printf("\nData written successfully.");
     fclose(f);
+}
+
+void deleteEmployee(){
+    Employee e;
+    char name[20];
+    char confirm='N';
+    int count=0;
+    int status;
+    fp=fopen("temp.txt","w");
+    f=fopen("emp.txt","r");
+    if(f==NULL){
+        printf("File not found!");
+    }else{
+        printf("Enter delete name:");
+        scanf("%s",&name);
+        while(fread(&e,sizeof(e),1,f)){
+            if(strcmpi(name,e.name)==0){
+                count=1;
+                printf("\n:::::::::::::::: Existing Details :::::::::::::::::\n\n");
+                printf(" Name \t\t\t\t\tSalary\n");
+                printf("---------------------------------------------------\n");
+                printf(" %-39s%0.2f\n",e.name,e.salary);
+                printf("---------------------------------------------------\n");
+            }
+        }
+        rewind(f);
+        printf("count: %d",count);
+        if(count==0){
+            printf("\nEmployee data not found!\n");
+        }else{
+            while(fread(&e,sizeof(e),1,f)){
+                if(strcmpi(name,e.name)==0){
+                    printf("\n\nAre you sure delete this record? (Y/N):");
+                    confirm=getche();
+                    if(confirm=='Y'||confirm=='y'){
+                            printf("\nData Deleted Successfully.");
+                        continue;
+                    }else{
+                    fwrite(&e,sizeof(e),1,fp);
+                    }
+                }
+                fwrite(&e,sizeof(e),1,fp);
+            }
+
+        }
+        fclose(f);
+        fclose(fp);
+        remove("emp.txt");
+        status=rename("temp.txt","emp.txt");
+    }
+
+    if(status==0){
+        //printf("Data Deleted Successfully.");
+    }
 }
 
 
