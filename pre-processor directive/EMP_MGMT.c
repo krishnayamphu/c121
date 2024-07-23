@@ -9,6 +9,7 @@ FILE *f,*fp;
 #include "add.c"
 #include "edit.c"
 #include "delete.c"
+#include "search.c"
 int main(){
     int choice;
     while(1){
@@ -33,6 +34,10 @@ int main(){
             getch();
             break;
         case 5:
+            searchEmployee();
+            getch();
+            break;
+        case 6:
             printf("Press any KEY to continue");
             exit(0);
             break;
